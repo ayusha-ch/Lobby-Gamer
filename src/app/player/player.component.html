@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="offset-3 col-6">
+      <input class="form-control" (keyup)="modelChanged($event)" ngModal>
+  </div>
+</div><br/>
+<div class="clearfix" *ngIf="isLogin == '1'">
+        <a routerLink="addplayer" type="button" class="btn btn-primary btn-sm pull-right">Add Player</a>
+    </div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Rank</th>
+        <th scope="col">Score</th>
+        <th scope="col">Time</th>
+        <th scope="col">Favourite Game</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players">
+        <td>{{player.name}}</td>
+        <td>{{player.rank}}</td>
+        <td>{{player.score}}</td>
+        <td>{{player.time}}</td>
+        <td>{{player.favouriteGame}}</td>
+        <td>{{player.status}}</td>
+        <td *ngIf="isLogin == '1' else userlogin">
+           <a [routerLink]="['/editplayer/', player._id]" class="btn btn-primary">Edit</a>
+            <a (click) = "deletePlayer(player._id)" class="btn btn-danger">Delete</a>
+      </td>
+      <ng-template class="navbar-nav mr-auto" #userlogin >
+          <td *ngIf="player.status == 'Available'">
+               <a [routerLink]="['/joingame/', player._id]" class="btn btn-outline-success">Join Game</a>
+         </td>
+      </ng-template>
+      </tr>
+      
+    </tbody>
+  </table>

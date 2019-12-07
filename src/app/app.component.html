@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="">Player App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText"  *ngIf="isLogin == '1' else userloggedOut">
+    <ul class="navbar-nav mr-auto" >
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="">Players <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="games">Games</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      Administrator
+        <a (click) = "logout()" class="btn btn-primary">Logout</a>
+    </span>
+  </div>
+  <ng-template class="navbar-nav mr-auto" #userloggedOut>
+      <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto" >
+          </ul>
+          <span class="navbar-text">
+            <a routerLink="login" class="btn btn-outline-primary" >Login</a>
+          </span>
+        </div>
+  </ng-template>
+</nav>
+<div class="container">
+  <div style="margin-top: 2rem;" class="space-top1">
+<router-outlet></router-outlet>
+</div>
+</div>

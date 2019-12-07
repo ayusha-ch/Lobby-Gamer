@@ -1,0 +1,59 @@
+<div class="container">
+        <form [formGroup]="JoinGameForm" (ngSubmit)="joinGame()" >
+                <input type="hidden" formControlName="_id" ngModel="{{player._id}}">
+                <input type="hidden" formControlName="status" ngModel="Unavailable">
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Name</label>
+                  <div class="col-sm-10">
+                    <input formControlName="name" type="hidden" ngModel="{{player.name}}">
+                    <label><b>{{player.name}}</b></label>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Rank</label>
+                  <div class="col-sm-10">
+                    <input formControlName="rank" type="hidden" ngModel="{{player.rank}}">
+                    <label><b>{{player.rank}}</b></label>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Score</label>
+                  <div class="col-sm-10">
+                    <input formControlName="score" type="hidden" ngModel="{{player.score}}">
+                    <label><b>{{player.score}}</b></label>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Time</label>
+                  <div class="col-sm-10">
+                    <input formControlName="time" type="hidden" ngModel="{{player.time}}">
+                    <label><b>{{player.time}}</b></label>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Favourite Game</label>
+                  <div class="col-sm-10">
+                    <input formControlName="favouriteGame" type="hidden" ngModel="{{player.favouriteGame}}">
+                    <label><b>{{player.favouriteGame}}</b></label>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="game" class="col-sm-2 col-form-label">Customer</label>
+                  <div class="col-sm-10">
+                    <select formControlName="game" ngModel class="form-control" id="game">
+                        <option selected value="">Select a Game</option>
+                        <option *ngFor="let game of games" 
+                        [value]="game.title">
+                        {{game.title}}
+                        </option>
+                      </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="offset-8 col-sm-4 d-inline-block">
+                    <button type="submit" class="btn btn-primary ">Join</button>
+                    <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                  </div>
+                </div>     
+          </form>
+</div>

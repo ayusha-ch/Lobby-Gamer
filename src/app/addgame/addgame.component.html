@@ -1,0 +1,59 @@
+<div class="container">
+        <form [formGroup]="addGameForm" (ngSubmit)="addgame()" >
+                <div class="form-group row">
+                  <label for="inputtitle" class="col-sm-2 col-form-label">Title</label>
+                  <div class="col-sm-10">
+                    <input formControlName="title" type="text" class="form-control" id="inputtitle" ngModel [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                    <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                      <div *ngIf="f.title.errors.required">Title is required</div>
+                  </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputplatform" class="col-sm-2 col-form-label">Platform</label>
+                    <div class="col-sm-10">
+                      <input formControlName="platform" type="text" class="form-control" id="inputplatform" ngModel >
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputgenre" class="col-sm-2 col-form-label">Genre</label>
+                    <div class="col-sm-10">
+                      <input formControlName="genre" type="text" class="form-control" id="inputgenre" ngModel >
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputrating" class="col-sm-2 col-form-label">Rating</label>
+                    <div class="col-sm-10">
+                      <input formControlName="rating" type="text" class="form-control" id="inputnating" ngModel >
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputpublisher" class="col-sm-2 col-form-label">Publisher</label>
+                    <div class="col-sm-10">
+                      <input formControlName="publisher" type="text" class="form-control" id="inputpublisher" ngModel >
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputrelease" class="col-sm-2 col-form-label">Release</label>
+                    <div class="col-sm-10">
+                      <input formControlName="release" type="text" class="form-control" id="inputrelease" ngModel >
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <label for="status" class="col-sm-2 col-form-label">Status</label>
+                  <div class="col-sm-10">
+                    <select formControlName="status" class="form-control" id="status" ngModel>
+                        <option value="">Select a Status</option>
+                        <option value="Available">Available</option>
+                        <option value="Unavailable">Unavailable</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="offset-8 col-sm-4 d-inline-block">
+                    <button type="submit" class="btn btn-primary ">Save</button>
+                    <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                  </div>
+                </div>
+          </form>
+      </div>  

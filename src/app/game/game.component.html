@@ -1,0 +1,39 @@
+<div class="row">
+        <div class="offset-3 col-6">
+            <input class="form-control" (keyup)="modelChanged($event)" ngModal>
+        </div>
+      </div>
+      <div class="clearfix">
+              <a routerLink="../addgame" type="button" class="btn btn-primary btn-sm pull-right">Add Game</a>
+          </div>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Platform</th>
+              <th scope="col">Genre</th>
+              <th scope="col">Rating</th>
+              <th scope="col">Publisher</th>
+              <th scope="col">Release</th>
+              <th scope="col">Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let game of games">
+              <td>{{game.title}}</td>
+              <td>{{game.platform}}</td>
+              <td>{{game.genre}}</td>
+              <td>{{game.rating}}</td>
+              <td>{{game.publisher}}</td>
+              <td>{{game.release}}</td>
+              <td>{{game.status}}</td>
+              <td>
+                 <a [routerLink]="['/editgame/', game._id]" class="btn btn-primary">Edit</a>
+                  <a (click) = "deleteGame(game._id)" class="btn btn-danger">Delete</a>
+            </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      
